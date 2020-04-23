@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import './App.css';
+import NavBar from './components/NavBar';
 import { IoMdCart } from 'react-icons/io';
 import { Cart } from './Cart';
 import { CartProvider } from './CartContext';
@@ -10,11 +10,11 @@ const App = () => {
 	const [ mark, setMark ] = useState('+');
 	const [ cart, setCart ] = useState({});
 
-	const toggle = () => {
-		setIsOpen(!isOpen);
+	// const toggle = () => {
+	// 	setIsOpen(!isOpen);
 
-		!isOpen ? setMark('-') : setMark('+');
-	};
+	// 	!isOpen ? setMark('-') : setMark('+');
+	// };
 	// const handleChange = (e, index) => {
 	// 	let d = [ ...data ];
 
@@ -34,11 +34,12 @@ const App = () => {
 	// };
 
 	return (
-		<CartProvider>
-			<div>dfdf</div>
-			<Cart />
-			<StudyList />
-		</CartProvider>
+		<NavBar />
+		// <CartProvider>
+		// 	<div>dfdf</div>
+		// 	<Cart />
+		// 	<StudyList />
+		// </CartProvider>
 	);
 };
 
