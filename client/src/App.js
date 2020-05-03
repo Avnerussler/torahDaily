@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 
 import NavBar from './components/NavBar';
 import { IoMdCart } from 'react-icons/io';
-import { Cart } from './Cart';
-import { CartProvider } from './CartContext';
-import { StudyList } from './StudysList';
+// import { Cart } from './Cart';
+// import { CartProvider } from './CartContext';
+import Study from './components/Study';
+import { studyList } from './studyList';
 const App = () => {
 	const [ isOpen, setIsOpen ] = useState('');
 	const [ mark, setMark ] = useState('+');
@@ -34,7 +35,13 @@ const App = () => {
 	// };
 
 	return (
-		<NavBar />
+		<div>
+			{studyList.map((item, index) => {
+				return <Study key={index} name={item.name} page={item.page} perek={item.perek} />;
+			})}
+		</div>
+
+		// <NavBar />
 		// <CartProvider>
 		// 	<div>dfdf</div>
 		// 	<Cart />

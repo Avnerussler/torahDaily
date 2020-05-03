@@ -1,25 +1,18 @@
 import React from 'react';
-import { Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './Home';
-import Cart from '../Cart';
-const NavBar = () => {
+import { Route, Link, Switch, Router } from 'react-router-dom';
+import { Home } from './Home';
+
+export const NavBar = () => {
 	return (
 		<Router>
-			<div>
-				<Link to="/">Home</Link>
-				<Link to="/cart">Cart</Link>
+			<Link to="/">Home</Link>
+			<Link>Cart</Link>
 
-				<Switch>
-					<Route path="/cart">
-						<Cart />
-					</Route>
-					<Route path="/">
-						<Home />
-					</Route>
-				</Switch>
-			</div>
+			<Switch>
+				<Route exact path="/">
+					<Home />
+				</Route>
+			</Switch>
 		</Router>
 	);
 };
-
-export default NavBar;

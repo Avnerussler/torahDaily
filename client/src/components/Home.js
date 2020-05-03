@@ -1,8 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-const Home = () => {
+export const Home = () => {
 	return <div>Home</div>;
 };
-
-export default Home;
