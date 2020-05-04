@@ -1,55 +1,30 @@
+import { hot } from 'react-hot-loader/root';
 import React, { useState } from 'react';
-
 import NavBar from './components/NavBar';
 import { IoMdCart } from 'react-icons/io';
-// import { Cart } from './Cart';
-// import { CartProvider } from './CartContext';
-import Study from './components/Study';
+import Gemara from './components/Gemara';
+import Pages from './components/Pages';
 import { studyList } from './studyList';
 const App = () => {
-	const [ isOpen, setIsOpen ] = useState('');
-	const [ mark, setMark ] = useState('+');
-	const [ cart, setCart ] = useState({});
-
-	// const toggle = () => {
-	// 	setIsOpen(!isOpen);
-
-	// 	!isOpen ? setMark('-') : setMark('+');
-	// };
-	// const handleChange = (e, index) => {
-	// 	let d = [ ...data ];
-
-	// 	d[index].taken = !d[index].taken;
-	// 	setData(d);
-
-	// 	// console.log(data);
-	// };
-	// const handleClick = (e, index) => {
-	// 	let d = [ ...data ];
-
-	// 	d[index].taken = !d[index].taken;
-	// 	setData(d);
-	// 	setCart(data);
-	// 	// data[index].taken = true ? console.log('as') : '';
-	// 	console.log(cart);
-	// };
-
 	return (
 		<div>
-			{studyList.map((item, index) => {
-				return <Study key={index} name={item.name} page={item.page} perek={item.perek} />;
-			})}
+			{studyList.map((item, index) => (
+				<div key={index}>
+					<Gemara type={item.type} />
+					{item.masechtot.map((masechet, i) => (
+						<div key={i}>
+							<div> {masechet.name} </div>
+							{masechet.pages.map((page, j) => (
+								<div key={j}>
+									<div>{page.page}</div>
+									{console.log(page.page)}
+								</div>
+							))}
+						</div>
+					))}
+				</div>
+			))}
 		</div>
-
-		// <NavBar />
-		// <CartProvider>
-		// 	<div>dfdf</div>
-		// 	<Cart />
-		// 	<StudyList />
-		// </CartProvider>
 	);
 };
-
-export default App;
-
-// {isOpen ? : ''}
+export default hot(App);

@@ -2,19 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-import { createStore, combineReducers } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import allReducers from './reducers';
 import { NavBar } from './components/NavBar';
 
-let store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
 	// <React.StrictMode>
 	<Provider store={store}>
-		<App />,
+		<App />
 	</Provider>,
 	// </React.StrictMode>,
 	document.getElementById('root')
